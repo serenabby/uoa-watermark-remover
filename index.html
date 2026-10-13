@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UoA Watermark Remover</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-inner">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+      <rect x="1.5" y="1.5" width="37" height="37" rx="3"/>
+      <path d="M11 14h18M11 20h18M11 26h11"/>
+      <circle cx="30" cy="26" r="3.2" class="dot"/>
+    </svg>
+    <div class="banner-text">
+      <h1 class="banner-title">UoA Claude Watermark Remover</h1>
+      <span class="banner-sub">made by @serenasong__ on ig</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<p class="sub">
+  Runs entirely in your
+  browser anonymously.
+</p>
+<p class="disclaimer">
+  <a href="#what">Read more</a>
+</p>
+
+<hr>
+
+<label for="input">input</label>
+<textarea id="input" spellcheck="false" rows="12"
+  placeholder="Paste text here…"></textarea>
+<div class="row">
+  <button id="runBtn">clean</button>
+  <button id="sampleBtn" class="alt">load sample</button>
+  <button id="clearBtn" class="alt">clear</button>
+  <span class="meta" id="inMeta">0 chars</span>
+</div>
+
+<label for="output">output</label>
+<textarea id="output" spellcheck="false" rows="12" readonly
+  placeholder="Output appears here…"></textarea>
+<div class="row">
+  <button id="copyBtn" disabled>copy</button>
+  <button id="dlBtn" class="alt" disabled>download .txt</button>
+  <span class="meta" id="outMeta">0 chars</span>
+</div>
+
+<label for="files">files</label>
+<input type="file" id="files" multiple>
+<ul id="fileList">
+  <li class="empty">No files. Text is cleaned, images have no watermarks.</li>
+</ul>
+
+<hr>
+
+<h2>Background</h2>
+<p>
+  On 14 August 2026 Anthropic published
+  <a href="https://www.anthropic.com/news/claude-text-watermark" target="_blank" rel="noopener">How
+  Claude's text watermark works</a>. To comply with the EU AI Act, Claude now includes a
+  watermark in all the text it generates that cannot be removed easily (copy paste doesn't work, rewriting it does).
+</p>
+</p>
+
+
+<h2 id="what">What it does</h2>
+<p>
+  This software essientially removes the watermarks by deleting the hidden HTML headers that Anthropic uses, then replacing them with randomly generated meta tags (found in all text online anyway). Then, to be safe, the software rewrites the entire text within its new identity by copy pasting each letter in order in one by one. (The content is not altered, it looks the same to the <i>human</i> eye).
+</p>
+<p>
+  You do NOT need to be worried about the process rewording any of your text, it will only remove the watermark and rewrite the text in its original form.
+</p>
+<p>
+  I don't have access to the API that's used to check for watermarks. If you by some random miracle have access, email me at <a href="mailto:serenasong63@gmail.com">serenasong63@gmail.com</a> :)
+</p>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

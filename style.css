@@ -1,0 +1,171 @@
+/* Deliberately minimal. One column, system fonts, no framework. */
+
+:root {
+  --uoa: #00467f;   /* University of Auckland blue */
+  --banner-bg: #00467f;
+  --banner-fg: #ffffff;
+  --banner-edge: #003257;
+  --fg:  #111;
+  --dim: #666;
+  --line:#ccc;
+  --bg:  #fff;
+}
+
+body {
+  margin: 0 0 3em;
+  font: 15px/1.55 ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+main {
+  max-width: 46em;
+  margin: 0 auto;
+  padding: 1.6em 1em 0;
+}
+
+h2 { font-size: 1.05em; margin: 1.6em 0 .4em; }
+
+.sub { margin: 0 0 .8em; }
+
+/* banner — full bleed, seams into the page below it */
+
+.banner {
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border-bottom: 3px solid var(--banner-edge);
+}
+
+.banner-inner {
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  max-width: 46em;
+  margin: 0 auto;
+  padding: .9em 1em;
+}
+
+.mark { width: 2.2em; height: 2.2em; flex: none; fill: none;
+        stroke: currentColor; stroke-width: 2; }
+.mark .dot { fill: currentColor; stroke: none; }
+
+.banner-text { display: flex; flex-direction: column; min-width: 0; }
+
+.banner-title {
+  margin: 0;
+  font-size: 1.25em;
+  font-weight: bold;
+  letter-spacing: .02em;
+}
+
+.banner-sub { font-size: .78em; opacity: .85; }
+
+.banner-badge {
+  margin-left: auto;
+  flex: none;
+  align-self: flex-start;
+  padding: .1em .5em;
+  border: 1px solid currentColor;
+  opacity: .7;
+  font-size: .7em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+@media (max-width: 34em) {
+  .banner-badge { align-self: center; }
+  .banner-sub { font-size: .72em; }
+}
+.disclaimer { margin: 0; color: var(--dim); font-size: .87em; }
+
+a { color: var(--uoa); }
+
+hr { border: 0; border-top: 1px solid var(--line); margin: 1.4em 0; }
+
+label {
+  display: block;
+  margin: 1.1em 0 .3em;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--dim);
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .6em;
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  resize: vertical;
+}
+
+textarea:focus { outline: 2px solid var(--uoa); outline-offset: -1px; }
+#output { background: #fafafa; }
+
+.row { display: flex; gap: .5em; align-items: center; margin-top: .5em; }
+
+button {
+  font: inherit;
+  padding: .35em .9em;
+  color: #fff;
+  background: var(--uoa);
+  border: 1px solid var(--uoa);
+  cursor: pointer;
+}
+button.alt { color: var(--uoa); background: var(--bg); }
+button:disabled { opacity: .4; cursor: default; }
+
+.meta { margin-left: auto; font-size: .8em; color: var(--dim); }
+
+pre {
+  padding: .6em;
+  border: 1px solid var(--line);
+  background: #fafafa;
+  font: inherit;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+ol { padding-left: 1.4em; }
+li { margin-bottom: .5em; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --uoa: #6fb2e8;
+          --banner-bg: #0d2c47; --banner-fg: #eaf2f9; --banner-edge: #6fb2e8; --fg: #ddd; --dim: #999; --line: #444; --bg: #16181a; }
+  button { color: #16181a; }
+  #output, pre { background: #1e2124; }
+}
+
+/* file list */
+
+input[type=file] { font: inherit; font-size: .85em; width: 100%; }
+
+ul#fileList { list-style: none; margin: .6em 0 0; padding: 0; }
+
+ul#fileList li {
+  display: flex;
+  gap: .6em;
+  align-items: center;
+  padding: .4em 0;
+  border-top: 1px solid var(--line);
+  font-size: .85em;
+}
+ul#fileList li.empty { border: 0; color: var(--dim); }
+
+.fname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fnote { margin-left: auto; color: var(--dim); white-space: nowrap; }
+
+.tag {
+  padding: 0 .4em;
+  border: 1px solid var(--line);
+  color: var(--dim);
+  font-size: .9em;
+}
+.tag.ok { color: var(--uoa); border-color: var(--uoa); }
+
+ul#fileList button { padding: .15em .6em; font-size: .9em; }
+
+code { font: inherit; background: rgba(127,127,127,.14); padding: 0 .25em; }
